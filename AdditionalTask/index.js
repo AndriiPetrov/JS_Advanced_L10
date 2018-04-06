@@ -1,13 +1,19 @@
 window.onload = function () {
     this.document.getElementById("button").onclick = function () {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "file1.html", true);
+        var xhr1 = new XMLHttpRequest();
+        var xhr2 = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                document.getElementById("output").innerHTML += xhr.responseText;
+        xhr1.open("GET", "file1.html", true);
+
+        xhr1.onreadystatechange = function () {
+            if (xhr1.readyState == 4 && xhr1.status == 200) {
+                document.getElementById("output").innerHTML += xhr1.responseText;
+            }
+            if(xhr2.readyState ==4 && xhr2.status){
+                document.getElementById("output").innerHTML += xhr2.responseText;
             }
         }
-        xhr.send();
+        xhr1.send();
+        xhr2.send();
     }
 }
